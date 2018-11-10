@@ -1,0 +1,24 @@
+//start ros master
+roscore
+
+//compile project
+catkin_make
+
+//run triangle node (on nuc)
+rosrun triangle_node triangle_control
+
+//set port of teensy
+rosrun rosserial_python serial_node.py _port:=/dev/ttyACM0
+
+//run teleop node
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+
+
+//display the keyboard commands stream
+rostopic echo /cmd_vel
+
+//display the motor control stream
+rostopic echo /motor_control_data
+
+//launch hector slam
+roslaunch triangle_node hector_mapping.launch

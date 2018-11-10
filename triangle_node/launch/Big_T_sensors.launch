@@ -1,0 +1,29 @@
+<launch>
+
+
+<!--launching the imu Node-->
+<include file="$(find razor_imu_9dof)/launch/razor-pub.launch"/>
+
+
+<!--launching the triangle control node-->
+ <node pkg="rosserial_python" type="serial_node.py" name="teensy_serial"  args="_port:=/dev/ttyACM0"/>
+ <node pkg="triangle_node" type="triangle_control" name="triangle_control" output="screen" /> 
+
+<!--launching the lidar node-->
+<node pkg="urg_node" name="urg_node" type="urg_node" output="screen">
+    <param name="ip_address" value=""/>
+    <param name="serial_port" value="/dev/ttyACM1"/>
+    <param name="serial_baud" value="115200"/>
+    <param name="frame_id" value="laser"/>
+    <param name="calibrate_time" value="true"/>
+    <param name="publish_intensity" value="false"/>
+    <param name="publish_multiecho" value="false"/>
+</node>
+
+
+<!--launching the Realsense -->
+<include file="$(find realsense_camera)/launch/r200_nodelet_rgbd.launch"/>
+
+
+
+</launch>
