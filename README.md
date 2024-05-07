@@ -25,7 +25,7 @@ Hector SLAM is used in conjunction with an extended Kalman filter (EKF) to fuse 
 <p align="center">  <img width="800"  src="./docs/hector_mapping_EKF_frames.png"></p>
 
 
-1. We can test localising the robot inside the saved map using AMCL (Adaptive Monte Carlo localisation) which estimates 2D position based on particle filter. The robot's pose is represented as a distribution of particles, where each particle represents a possible pose of the robot. It takes as input a map, LIDAR scans, and transform messages, and outputs an estimated pose. See [here](http://wiki.ros.org/amcl) for more details.
+2. We can test localising the robot inside the saved map using AMCL (Adaptive Monte Carlo localisation) which estimates 2D position based on particle filter. The robot's pose is represented as a distribution of particles, where each particle represents a possible pose of the robot. It takes as input a map, LIDAR scans, and transform messages, and outputs an estimated pose. See [here](http://wiki.ros.org/amcl) for more details.
 
 <p align="center">  <img height="300" src="./docs/AMCL_EKF_localisation.gif"></p>
 
